@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RealEstate Extension</title>
+  <style>
+    /* Add any CSS styles for your popup here */
+  </style>
+</head>
+<body>
+  <div class="draggable">
+    <iframe src="https://www.realestate.com.au/property-apartment-nsw-sydney-140945048" width="400" height="600" frameborder="0"></iframe>
+  </div>
+  <!-- Add other elements, such as a comment form, submit button, etc. -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <script>
+    $(function() {
+      $(".draggable").draggable();
+    });
+
+        // Send a message to the content script
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+      chrome.tabs.sendMessage(tabs[0].id, { action: "doSomethingOnPage" }, function (response) {
+        console.log("Response from content script:", response);
+      });
+    });
+
+  </script>
+</body>
+</html>

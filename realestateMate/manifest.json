@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "RealEstate Chrome Extension",
+  "version": "1.0",
+  "description": "Description of your extension",
+  "action": {
+  "default_popup": "popup.html"
+},
+"permissions": [
+  "activeTab",
+  "storage"
+],
+"content_scripts": [
+  {
+    "matches": ["https://www.realestate.com.au/*"],
+    "js": ["content_script.js"]
+  }
+]
+
+}
